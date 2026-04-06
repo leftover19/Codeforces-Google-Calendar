@@ -11,7 +11,6 @@ const CREDENTIALS_PATH = path.join(process.cwd(), "credentials.json");
 
 export async function getAuthClient(): Promise<OAuth2Client> {
   const credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH, "utf-8"));
-  console.log(credentials)
   const { client_id, client_secret, redirect_uris } = credentials.installed;
   
   const oAuth2Client = new google.auth.OAuth2(
